@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Charts</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .chart-size {
+            width: 100% !important;
+            height: 350px !important;
+        }
+        .chart-size-line {
+            width: 100% !important;
+            height: 280px !important;
+        }
+    </style>
+</head>
+<style>
+        body {
+            background-color: #f5f7fa;
+        }
+        .navbar {
+            background: #0d6efd;
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar .nav-link, .navbar .btn {
+            color: white;
+        }
+        .navbar .btn:hover {
+            background: #0b5ed7;
+        }
+        .bi-top-space{
+            margin-top: 68px;
+        }
+    </style>
+<body>
+
+<!-- 🔵 NAVBAR -->
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand" href="{% url 'home_views' %}">💰 WalletWatch</a>
+
+        <div class="ms-auto d-flex align-items-center">
+
+            <a href="{% url 'home_views' %}" class="btn btn-outline-light me-2">
+                Home
+            </a>
+
+            <a href="{% url 'charts' %}" class="btn btn-outline-light me-2">
+                Analysis
+            </a>
+
+            <a href="{% url 'logout' %}" class="btn btn-outline-light">
+                Logout
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container mt-4">
+
+    <div class="row">
+
+        <!-- LEFT SIDE → PIE CHART -->
+        <div class="col-md-6 bi-top-space" >
+            <div class="card p-3 shadow-sm">
+                <h5 class="text-center mb-3">Category Breakdown</h5>
+                <canvas id="pieChart" class="chart-size"></canvas>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE → LINE CHART + TOP 3 -->
+        <div class="col-md-6">
+
+            <!-- LINE CHART -->
+            <div class="card p-3 shadow-sm mb-4">
+                <h5 class="text-center mb-3">Monthly Expense Trend</h5>
+                <canvas id="lineChart" class="chart-size-line"></canvas>
+            </div>
+
+            <!-- TOP 3 CATEGORY CARD -->
+            <div class="card p-3 shadow-sm">
+    <h5 class="mb-3 text-center">Top 3 Spending Categories</h5>
+
+    <ul class="list-group">
+        {% for item in top3 %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ item.category }}</span>
+                <strong>₹{{ item.total }}</strong>
+            </li>
+        {% empty %}
+            <li class="list-group-item text-center">No data available</li>
+        {% endfor %}
+    </ul>
+</div> 
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 🔶 JS: Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- CHART SCRIPTS -->
+<script>
+    const categories = JSON.parse('{{ categories_json|safe }}');
+    const amounts = JSON.parse('{{ category_amounts_json|safe }}');
+
+    const months = JSON.parse('{{ months_json|safe }}');
+    const monthlyAmounts = JSON.parse('{{ monthly_amounts_json|safe }}');
+
+    // PIE CHART
+    new Chart(document.getElementById('pieChart'), {
+        type: 'pie',
+        data: {
+            labels: categories,
+            datasets: [{
+                data: amounts
+            }]
+        }
+    });
+
+    // LINE CHART
+    new Chart(document.getElementById('lineChart'), {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                data: monthlyAmounts,
+                fill: false,
+                tension: 0.3
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>
