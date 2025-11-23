@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 import dj_database_url
 
@@ -21,12 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h$b2wms$o=34g984%#)$@gdlm3=g9r5vp=3z3y#kwl!(0!p9@y'
-
+#SECRET_KEY = 'django-insecure-h$b2wms$o=34g984%#)$@gdlm3=g9r5vp=3z3y#kwl!(0!p9@y'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-key')
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+#DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-key')
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+
 
 
 # Application definition
@@ -123,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
