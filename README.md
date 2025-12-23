@@ -72,12 +72,90 @@ Wallet Watch provides meaningful insights to users:
 ### 3️⃣ Edit Expense
 ![Edit Expense](screenshots/edit.PNG)  
 
-### 4️⃣ Analysis
+### 4️⃣ Analytics
 ![Analysis](screenshots/analysis.PNG)  
 
-### 5️⃣ Login Page
+### 5️⃣ Login 
 ![login page](screenshots/login.PNG)
 
-### 6️⃣ Register Page
+### 6️⃣ Register 
 ![Register page](screenshots/register.png)  
 
+
+---
+
+## 🌐 Live Deployment (Render)
+
+The application is deployed and accessible online using **Render**.
+
+🔗 **Live URL:** https://wallet-watch-9unz.onrender.com 
+
+---
+
+## ⚙️ Run Locally (Optional)
+
+> For developers who want to run the project locally
+
+Follow the steps below to run the **Wallet Watch** project on your local machine.
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2️⃣ Create virtual environment
+```bash
+python -m venv venv
+``` 
+
+### 3️⃣ Activate virtual environment
+```bash
+venv\Scripts\activate
+```
+
+### 4️⃣ Install required Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 5️⃣ Apply Database Migrations
+```bash
+python manage.py migrate
+```
+
+### 6️⃣ Run the Deployment Server
+```bash
+python manage.py runserver
+```
+
+### 7️⃣ Open the application in Browser
+```Text
+http://127.0.0.1:8000/
+```
+
+## 🚀 Future Enhancements
+
+- 📅 Yearly expense reports  
+- 📤 Export expenses as CSV / PDF  
+- 📊 Advanced analytics & filters  
+- 🤖 Expense prediction using Machine Learning  
+- ☁️ Cloud database integration
+---
+## 🎯 Project Highlights
+
+This project demonstrates:  
+- Full-stack development using Django  
+- Secure user authentication  
+- Backend CRUD operations  
+- Data visualization using Chart.js  
+- Responsive UI design  
+- Real-world deployment using Render
+---
+## 👩‍💻 Author
+
+**Hema Madhuri Mamidi**  
+GitHub: https://github.com/hema-madhuri-mamidi   
+LinkedIn: https://linkedin.com/in/hema-madhuri-mamidi  
+
+⭐ If you like this project, consider giving it a star!
