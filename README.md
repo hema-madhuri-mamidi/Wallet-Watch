@@ -63,20 +63,21 @@ Wallet Watch provides meaningful insights to users:
 
 ## 📸 Screenshots
 
-### 1️⃣ Register Page
+### 1️⃣ Home Page
+![Home](screenshots/add-edit.PNG)
+
+### 2️⃣ Add Expense
+![Add Expense](screenshots/add.PNG) 
+
+### 3️⃣ Edit Expense
+![Edit Expense](screenshots/edit.PNG)  
+
+### 4️⃣ Analysis
+![Analysis](screenshots/analysis.PNG)  
+
+### 5️⃣ Login Page
+![login page](screenshots/login.PNG)
+
+### 6️⃣ Register Page
 ![Register page](screenshots/register.png)  
 
-### 2️⃣ Login Page
-![login page](screenshots/login.png)  
-
-### 3️⃣ Home Page
-![Home]()
-
-### 1️⃣ Register Page
-![Register page](screenshots/register.png)  
-
-### 1️⃣ Register Page
-![Register page](screenshots/register.png)  
-
-### 1️⃣ Register Page
-![Register page](screenshots/register.png)  
