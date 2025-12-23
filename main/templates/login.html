@@ -102,6 +102,13 @@
       <i class="bi bi-wallet2 me-2"></i> WalletWatch
     </div>
     <h4 class="text-center mb-4">Welcome Back</h4>
+    {% if messages %}
+  {% for message in messages %}
+    <div style="color: red; font-weight: bold;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
 
     <form method="POST" action="">
       {% csrf_token %}
